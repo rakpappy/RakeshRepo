@@ -1,0 +1,27 @@
+<div class="container" style="text-align: center">
+  <h2>{{title}}</h2>
+ 
+</div>
+  <nav class="navbar navbar-expand-sm bg-blue navbar-white"
+   style="text-align:center ">
+      <!-- Links -->
+      <ul class="navbar-nav">
+          <li class="nav-item">
+              <a routerLink="add" class="btn btn-primary active" role="button" routerLinkActive="active">Add Task</a>
+          </li>
+          <li class="nav-item" style="margin-left: 10px;">
+              <a routerLink="list" class="btn btn-primary active" role="button" routerLinkActive="active">View Task</a>
+          </li>
+          <li class="nav-item" style="margin-left: 10px;">
+            <a routerLink="project" class="btn btn-primary active" role="button" routerLinkActive="active">Add Project</a>
+        </li>
+        <li class="nav-item" style="margin-left: 10px;">
+            <a routerLink="user" class="btn btn-primary active" role="button" routerLinkActive="active">Add User</a>
+        </li>
+      </ul>
+
+  </nav>
+  <router-outlet></router-outlet>
+
+
+<router-outlet></router-outlet>

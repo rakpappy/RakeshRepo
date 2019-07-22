@@ -1,0 +1,76 @@
+
+
+<h2 class="text-center">Edit Project</h2>
+<form [formGroup]="editProjectForm" (ngSubmit)="onSubmit()">
+
+    <table class="table table-striped">
+        <tr>
+            <td>
+              <label for="projectId">Project Id</label>
+            </td>
+            <td>
+              <input type="text" class="form-control" formControlName="projectId" id="project"  name="project">
+            </td>
+       <tr>
+        <td>
+          <label for="Project">Project</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" id="project" formControlName="project" name="project">
+        </td>
+      </tr>
+      <tr>
+<td>
+    <input type="checkbox" ng-model="checked" data-md-icheck id="checkDates" (change)="toggleVisibility($event)"/><label style="font-weight: bold;margin-left:5px;margin-top: 15px;">Select Start End Date</label>
+</td>
+<td>
+    <mat-form-field>
+        <input matInput [matDatepicker]="picker1"  placeholder="StartDate" formControlName="startDate" name="startDate" id="startDate">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+    </td>    
+    <td>
+   <mat-form-field>
+        <input matInput [matDatepicker]="picker2"  placeholder="EndDate"  name="endDate"  formControlName="endDate" id="endDate">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+</td>
+      </tr>
+       <tr>
+        <td>
+            
+            <label for="Priority">Priority</label>
+        </td>
+        <td>
+            <mat-slider min="1" max="30" step="1" formControlName="priority"  name="priority"></mat-slider>
+        </td>
+      </tr>
+       <tr>
+        <td>
+          <label for="Manager">Manager</label>
+        </td>
+        <td>
+              <select formControlName="userId"  class='form-control'>
+                
+                  <option [ngValue]="user.userId"  *ngFor="let user of usersDrop">  
+                    {{user.firstName}}</option>
+                </select>
+           
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <button type="submit" class="btn btn-success">Update</button>
+           
+        </td>
+        
+    </tr> 
+
+
+    </table>
+    
+    
+  </form>
+

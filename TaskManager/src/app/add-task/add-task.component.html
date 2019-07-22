@@ -1,0 +1,114 @@
+<h3>Add Task</h3>
+
+  <form (ngSubmit)="onSubmit()">
+
+    <table class="table table-striped">
+      <tr>
+        <td>
+          <label for="Project">Project</label>
+        </td>
+        <td>
+            <mat-form-field>
+                <mat-label>Select Project</mat-label>
+                <mat-select [(ngModel)]="task.projectId" name="projectId" id="projectId" > 
+                  <mat-option *ngFor="let project of projectsDrop" [value]="project.projectId">
+                    {{project.project}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </td>
+      </tr>
+      <!-- <tr>
+
+        <td>
+          <input type="checkbox" ng-model="checked" data-md-icheck id="checkDates" (change)="toggleVisibility($event)"/><label style="font-weight: bold;margin-left:5px;margin-top: 15px;">ParentTask</label>
+
+        </td>
+      </tr>-->
+     <tr>
+        <td>
+          <label for="Parent Task">Parent Task</label>
+        </td>
+        <td>
+            <mat-form-field>
+                <mat-label>Select Parent Task</mat-label>
+                <mat-select [(ngModel)]="task.parentId" name="parentId" id="parentId" > 
+                  <mat-option *ngFor="let parentTask of parentTaskDrop" [value]="parentTask.parentId">
+                    {{parentTask.parentTask}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </td>
+
+      </tr> 
+      <tr>
+        <td>
+          <label for="Task">Task</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" id="task" required [(ngModel)]="task.task" name="project">
+        </td>
+      </tr>
+
+      <tr>
+<td>
+    <input type="checkbox" ng-model="checked" data-md-icheck id="checkDates" (change)="toggleVisibility($event)"/><label style="font-weight: bold;margin-left:5px;margin-top: 15px;">Select Start End Date</label>
+</td>
+
+
+<td>
+    <mat-form-field>
+        <input matInput [matDatepicker]="picker1"  placeholder="StartDate" required [(ngModel)]="task.startDate" name="startDate" id="startDate">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+    </td>
+     
+    
+    <td>
+   <mat-form-field>
+        <input matInput [matDatepicker]="picker2"  placeholder="EndDate" required [(ngModel)]="task.endDate" name="endDate" id="endDate">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+</td>
+      </tr>
+        <tr>
+        <td>
+            
+            <label for="Priority">Priority</label>
+        </td>
+        <td>
+            <mat-slider min="1" max="30" step="1"  required [(ngModel)]="task.priority" name="priority"></mat-slider>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="User">User</label>
+        </td>
+        <td>
+            <mat-form-field>
+                <mat-label>Select User</mat-label>
+                <mat-select [(ngModel)]="task.userId" name="userId" id="userId" > 
+                  <mat-option *ngFor="let user of usersDrop" [value]="user.userId">
+                    {{user.firstName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="reset" class="btn btn-success" style="margin-left: 5px">Reset</button>
+        </td>
+        <td>
+            <button type="button" (click)="listTask()" class="btn btn-success">Task List</button>
+        </td>
+    </tr> 
+
+
+    </table>
+    
+    
+  </form>

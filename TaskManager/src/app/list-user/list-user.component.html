@@ -1,0 +1,51 @@
+
+<mat-form-field style="width:100%;">
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+  <table   style="width: 100%;"    mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="userId" data-ng-blur="true">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>User Id </th>
+          <td mat-cell *matCellDef="let user"> {{user.userId}} </td>
+        </ng-container>
+      
+        
+        <ng-container matColumnDef="firstName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>First Name </th>
+          <td mat-cell *matCellDef="let user"> {{user.firstName}} </td>
+        </ng-container>
+      
+      
+        <ng-container matColumnDef="lastName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+          <td mat-cell *matCellDef="let user"> {{user.lastName}} </td>
+        </ng-container>
+      
+       
+        <ng-container matColumnDef="employeeId">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Employee Id </th>
+          <td mat-cell *matCellDef="let user"> {{user.employeeId}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+          <td mat-cell *matCellDef="let user"> 
+            
+              <button mat-icon-button color="accent" (click)="editUser(user)">
+                  <mat-icon aria-label="Edit">edit</mat-icon>
+                </button>
+        
+                <button mat-icon-button color="accent" (click)="deleteUser(user)">
+                  <mat-icon aria-label="Delete">delete</mat-icon>
+                  
+                </button>
+                
+          
+          </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+      

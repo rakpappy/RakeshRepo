@@ -1,0 +1,10 @@
+table {
+    width: 100%;
+  }
+  
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+  .btn btn-success{
+    width: 100px;
+  }
