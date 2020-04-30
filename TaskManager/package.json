@@ -24,7 +24,7 @@
     "angular-bootstrap-md": "^7.5.2",
     "angular-hammer": "^2.2.0",
     "core-js": "^2.5.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "mdbootstrap": "^4.8.2",
     "ng-uikit": "^0.1.6",
     "rxjs": "~6.3.3",
